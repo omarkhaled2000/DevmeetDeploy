@@ -19,16 +19,16 @@ function Profile() {
     const [userProfile, setUserProfile] = useState();
     const [isFollowing, setIsFollowing] = useState();
     const [updatedUser, setUpdatedUser] = useState()
-    console.log(isFollowing)
 
+    console.log(location)
     const { state } = location
+    console.log(state)
     let { user } = useAuthContext()
 
 
     useEffect(() => {
         if (state) {
             setUserProfile(state.user)
-            console.log(userProfile._id)
             Object.freeze(user)
         }
         else {

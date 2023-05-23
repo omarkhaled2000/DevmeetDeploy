@@ -24,26 +24,13 @@ const Notification = ({ socket }) => {
     setnotify([]);
     console.log("handleDeleteAll");
   };
-  let dummyNotifications = [
-    {
-      id: "640fb3ba8c59464e3c307751",
-      text: "Added New Post",
-      createdAt: "2023-03-14T10:30:02.170Z",
-      content: "ITI CU MEARN",
-      user: {
-        _id: "640fb3ba8c59464e3c307751",
-        profilePicture: "sobhy kaber.png",
-        firstName: "sobhy",
-        lastName: "kabr",
-      },
-    },
-  ];
 
   useEffect(() => {
     socket.on("createNotifyToClient", (data) => {
       console.log("createNotifyToClient");
       console.log(data);
       setnotify([data, ...notify]);
+      console.log(notify)
     });
   });
 

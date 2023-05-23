@@ -1,4 +1,4 @@
-const io = require("socket.io")(`${process.env.SOCKET_API_LINK}`, {
+const io = require("socket.io")(8900, {
   cors: {
     origin: `${process.env.REACT_LINK}`
   }
