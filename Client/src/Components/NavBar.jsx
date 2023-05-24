@@ -22,7 +22,6 @@ const NavBar = ({ sendSearch }) => {
             withCredentials: true
         }).then((response) => { return response })
             .then(() => {
-                localStorage.removeItem('user')
                 dispatch({ type: 'LOGOUT' })
             })
             .catch((err) => { console.log(err) })

@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  
   "dependencies": {
     "@emailjs/browser": "^3.10.0",
     "@emotion/react": "^11.10.6",
@@ -28,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "i": "^0.3.7",
     "i18next": "^22.4.12",
+    "js-cookie": "^3.0.5",
     "mdb-react-ui-kit": "^5.1.0",
     "moment": "^2.29.4",
     "npm": "^9.5.1",
@@ -50,10 +50,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "start": "react-scripts start",  
-  "build": "react-scripts build",  
-  "test": "react-scripts test",    
-  "eject": "react-scripts eject"   
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

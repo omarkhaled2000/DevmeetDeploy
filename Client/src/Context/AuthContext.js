@@ -1,4 +1,5 @@
 import {createContext, useReducer,useEffect, useState} from 'react'
+import Cookies from 'js-cookie'
 
 export const AuthContext = createContext()
 
@@ -7,6 +8,7 @@ export const authReducer=(state, action)=>{
   case 'LOGIN':
    return{user:action.payload}
   case 'LOGOUT':
+  localStorage.removeItem('user')
   return {user:null}
   case 'Update':
   return {user:action.payload}
@@ -40,12 +42,11 @@ const [isLoading, setIsLoading] = useState(true);
 
  useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'))
-    const jwtCookie = getCookie('jwt'); 
+    const jwtCookie = Cookies.get('jwt'); 
     if (!jwtCookie) {
-    dispatch({ type: 'LOGOUT' }); // Set user to null when jwt cookie is not present
+    dispatch({ type: 'LOGOUT' }); 
   }
-
-    if (user) {
+    else if (user) {
       dispatch({ type: 'LOGIN', payload: user }) 
     }
    setIsLoading(false)
