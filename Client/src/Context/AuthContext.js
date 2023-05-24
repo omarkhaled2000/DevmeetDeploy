@@ -40,6 +40,10 @@ const [isLoading, setIsLoading] = useState(true);
 
  useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'))
+    const jwtCookie = getCookie('jwt'); 
+    if (!jwtCookie) {
+    dispatch({ type: 'LOGOUT' }); // Set user to null when jwt cookie is not present
+  }
 
     if (user) {
       dispatch({ type: 'LOGIN', payload: user }) 
