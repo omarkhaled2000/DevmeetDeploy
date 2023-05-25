@@ -30,6 +30,7 @@ let [t,i18n]= useTranslation();
     const LoginServer = async (e) => {
         e.preventDefault()
         console.log("inside login")
+        console.log(process.env.REACT_APP_BACKEND_LINK)
         setError(null) 
         const res = await fetch(`${process.env.REACT_APP_BACKEND_LINK}/login`, {
             method: 'POST',
