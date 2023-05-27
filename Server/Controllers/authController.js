@@ -53,6 +53,16 @@ console.log("true")
      res.header("x-auth-token", accessToken)
         // res.status(201).send("Created Successfully");
         // res.redirect('/home')
+         const isCookieSet = res.headersSent && res.getHeader('Set-Cookie');
+        if (isCookieSet) {
+    // Cookie was set successfully
+    // Additional logic or response handling
+    res.status(200).json({ message: 'Cookie set successfully' });
+  } else {
+    // Cookie was not set
+    // Additional error handling or response
+    res.status(500).json({ error: 'Failed to set cookie' });
+  }
         res.status(201).json({user: newU})
     }
 
