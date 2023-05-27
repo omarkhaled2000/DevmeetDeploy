@@ -48,10 +48,11 @@ console.log("true")
         await newU.save();
         console.log("user saved")
         console.log(newU)
-     const accessToken = jwt.sign({userId:newU._id, adminRole:newU.isAdmin}, "thisissecret", {expiresIn: maxAge});
+  const accessToken = jwt.sign({userId:newU._id, adminRole:newU.isAdmin}, "thisissecret", {expiresIn: maxAge});
   res.cookie('jwt', accessToken, {
   maxAge: maxAge * 1000,
-  sameSite: "none"
+  secure: true,
+  sameSite: 'none',
 }); // times 1000 because cookies is in milliseconds   
      res.header("x-auth-token", accessToken)
         // res.status(201).send("Created Successfully");
@@ -94,7 +95,11 @@ if(LoginValidator){
    var accessToken = jwt.sign({userId:foundUser[0]._id, adminRole:foundUser[0].isAdmin}, "thisissecret")
    console.log(accessToken)
    res.header("x-auth-token", accessToken)
-   res.cookie('jwt', accessToken, {maxAge: maxAge * 1000}) // times 1000 because cookies is in milliseconds   
+  res.cookie('jwt', accessToken, {
+  maxAge: maxAge * 1000,
+  secure: true,
+  sameSite: 'none',
+}); // times 1000 because cookies is in milliseconds   
 //    res.status(200).send(`welcome ${foundUser[0].firstname}`)
 
 
