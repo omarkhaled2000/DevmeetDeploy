@@ -81,7 +81,7 @@ app.use(
   })
 );
 app.use(morgan("tiny"));
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin:"https://devmeet-app.onrender.com", credentials: true }));
 dotenv.config();
 
 //Routes constants
