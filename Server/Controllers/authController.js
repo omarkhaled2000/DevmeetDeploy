@@ -52,7 +52,7 @@ console.log("true")
   res.cookie('jwt', accessToken, {
   maxAge: maxAge * 1000,
   secure: true,
-  sameSite: 'none',
+  SameSite: 'none',
 }); // times 1000 because cookies is in milliseconds   
      res.header("x-auth-token", accessToken)
         // res.status(201).send("Created Successfully");
