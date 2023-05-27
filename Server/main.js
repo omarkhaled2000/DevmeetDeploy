@@ -81,7 +81,7 @@ app.use(
   })
 );
 app.use(morgan("tiny"));
-app.use(cors({ origin: "https://splendid-lollipop-ef4ddc.netlify.app", credentials: true }));
+app.use(cors({ origin: true, credentials: true }));
 dotenv.config();
 
 //Routes constants
