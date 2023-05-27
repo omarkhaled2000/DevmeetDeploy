@@ -1,0 +1,4 @@
+[[redirects]]
+from = "/*"
+to = "/puindex.html"
+status = 200

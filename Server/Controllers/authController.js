@@ -88,6 +88,7 @@ if(LoginValidator){
    }
    console.log("this is the login method")
    var accessToken = jwt.sign({userId:foundUser[0]._id, adminRole:foundUser[0].isAdmin}, "thisissecret")
+   console.log(accessToken)
    res.header("x-auth-token", accessToken)
    res.cookie('jwt', accessToken, {maxAge: maxAge * 1000}) // times 1000 because cookies is in milliseconds   
 //    res.status(200).send(`welcome ${foundUser[0].firstname}`)
