@@ -49,7 +49,11 @@ console.log("true")
         console.log("user saved")
         console.log(newU)
      const accessToken = jwt.sign({userId:newU._id, adminRole:newU.isAdmin}, "thisissecret", {expiresIn: maxAge});
-     res.cookie('jwt', accessToken, {maxAge: maxAge * 1000}) // times 1000 because cookies is in milliseconds   
+  res.cookie('jwt', accessToken, {
+  maxAge: maxAge * 1000,
+  secure: true,
+  sameSite: 'none',
+}); // times 1000 because cookies is in milliseconds   
      res.header("x-auth-token", accessToken)
         // res.status(201).send("Created Successfully");
         // res.redirect('/home')
